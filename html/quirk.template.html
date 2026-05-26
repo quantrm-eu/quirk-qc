@@ -10,32 +10,82 @@
         <!-- Whatever is between these start/end analytic tags is stripped by the 'downloading offline copy' code. -->
         <!-- Start Analytics -->
         <!-- End Analytics -->
+
+        <!-- QuantRM theme -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <style>
+            html, body { font-family: 'Roboto', Arial, sans-serif; color: #242424; }
+            /* Toolbar above the circuit */
+            .q-toolbar {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px 16px;
+                background: #ffffff;
+                border-bottom: 1px solid #e5e5e5;
+            }
+            .q-btn {
+                font: 500 13px 'Roboto', Arial, sans-serif;
+                color: #242424;
+                background: #ffffff;
+                border: 1px solid #d4d4d4;
+                border-radius: 6px;
+                padding: 7px 14px;
+                min-height: 34px;
+                cursor: pointer;
+                transition: background .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+            }
+            .q-btn:hover:not(:disabled) { background: #E7EEF6; border-color: #9FC0E8; }
+            .q-btn:active:not(:disabled) { background: #d6e3f3; }
+            .q-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(43,108,176,0.25); }
+            .q-btn:disabled { opacity: .45; cursor: default; }
+            .q-btn-primary { background: #2b6cb0; border-color: #2b6cb0; color: #ffffff; }
+            .q-btn-primary:hover:not(:disabled) { background: #245d99; border-color: #245d99; }
+            .q-btn-primary:active:not(:disabled) { background: #1f5085; }
+            .q-sep { width: 1px; align-self: stretch; margin: 2px 4px; background: #e5e5e5; }
+            .q-version { margin-left: auto; color: #a3a3a3; font-size: 12px; font-weight: 500; letter-spacing: .02em; }
+
+            /* Welcome / Menu modal — QuantRM theme */
+            #menu-overlay { background: rgba(23,23,23,0.72); }
+            .q-menu-wrap { position: fixed; top: 24px; left: 24px; right: 24px; display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; max-height: calc(100vh - 48px); overflow: auto; }
+            .q-menu-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 14px; box-shadow: 0 20px 48px rgba(23,23,23,.28); padding: 28px 28px 24px; text-align: center; flex: 1 1 460px; max-width: 520px; }
+            .q-menu-brand { display: flex; align-items: center; justify-content: center; gap: 12px; }
+            .q-menu-brand img { height: 34px; width: auto; }
+            .q-menu-name { font-family: 'Raleway', Arial, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.02em; color: #242424; }
+            .q-menu-sub { color: #737373; font-size: 14px; margin: 8px 0 20px; }
+            .q-menu-edit { width: 100%; height: 84px; font: 600 18px 'Raleway', Arial, sans-serif; color: #fff; background: #2b6cb0; border: none; border-radius: 10px; cursor: pointer; transition: background .15s ease; }
+            .q-menu-edit:hover { background: #245d99; }
+            .q-menu-loading { width: 100%; height: 84px; display: flex; align-items: center; justify-content: center; color: #9FC0E8; font: 600 18px 'Raleway', Arial, sans-serif; }
+            .q-menu-links { display: flex; gap: 12px; justify-content: center; margin-top: 20px; }
+            .q-menu-link { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 130px; padding: 18px 8px; border: 1px solid #e5e5e5; border-radius: 10px; color: #242424; text-decoration: none; transition: background .15s ease, border-color .15s ease; }
+            .q-menu-link:hover { background: #E7EEF6; border-color: #9FC0E8; }
+            .q-menu-link svg { width: 34px; height: 34px; color: #2b6cb0; }
+            .q-menu-link span { font: 500 13px 'Roboto', Arial, sans-serif; }
+            .q-examples { background: #f5f7fa; border: 1px solid #e5e5e5; border-radius: 14px; padding: 22px 26px; min-width: 240px; box-shadow: 0 20px 48px rgba(23,23,23,.18); }
+            .q-examples h4 { font-family: 'Raleway', Arial, sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #737373; margin-bottom: 12px; }
+            .q-examples a { display: block; color: #2b6cb0; padding: 4px 0; cursor: pointer; font: 400 14px 'Roboto', Arial, sans-serif; }
+            .q-examples a:hover { text-decoration: underline; }
+        </style>
     </head>
     <body style="margin: 0">
         <!-- Primary content -->
         <div id="inspectorDiv" style="display: none">
             <!-- Buttons -->
-            <div style="margin: 5px;">
-                <button id="menu-button" style="min-width: 50px; min-height: 30px;">Menu</button>
-                &nbsp;
-                &nbsp;
-                <button id="export-button" style="min-width: 50px; min-height: 30px;">Export</button>
-                &nbsp;
-                &nbsp;
-                <button id="clear-circuit-button" style="min-width: 50px; min-height: 30px;">Clear Circuit</button>
-                <button id="clear-all-button" style="min-width: 50px; min-height: 30px;">Clear ALL</button>
-                &nbsp;
-                &nbsp;
-                <button id="undo-button" style="min-width: 50px; min-height: 30px;">Undo</button>
-                <button id="redo-button" style="min-width: 50px; min-height: 30px;">Redo</button>
-                &nbsp;
-                &nbsp;
-                <button id="gate-forge-button" style="min-width: 50px; min-height: 30px;">Make Gate</button>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                <span style="color:#BBB">Version 2.3</span>
+            <div class="q-toolbar">
+                <button id="menu-button" class="q-btn q-btn-primary">Menu</button>
+                <button id="export-button" class="q-btn">Export</button>
+                <span class="q-sep"></span>
+                <button id="clear-circuit-button" class="q-btn">Clear Circuit</button>
+                <button id="clear-all-button" class="q-btn">Clear ALL</button>
+                <span class="q-sep"></span>
+                <button id="undo-button" class="q-btn">Undo</button>
+                <button id="redo-button" class="q-btn">Redo</button>
+                <span class="q-sep"></span>
+                <button id="gate-forge-button" class="q-btn">Make Gate</button>
+                <span class="q-version">v2.3</span>
             </div>
 
             <!-- Circuit drawing area -->

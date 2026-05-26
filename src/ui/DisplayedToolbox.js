@@ -270,7 +270,7 @@ class DisplayedToolbox {
             'center',
             'middle',
             'black',
-            '16px sans-serif',
+            '16px Roboto, Arial, sans-serif',
             r.w,
             r.h);
 

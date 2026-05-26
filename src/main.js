@@ -317,8 +317,12 @@ setTimeout(() => {
     redrawNow();
     document.getElementById("loading-div").style.display = 'none';
     document.getElementById("close-menu-button").style.display = 'block';
-    if (!displayed.get().displayedCircuit.circuitDefinition.isEmpty()) {
-        closeMenu();
+    // Open straight into the circuit editor instead of showing the welcome menu.
+    closeMenu();
+
+    // Re-render once the web fonts (Roboto) have loaded so canvas labels use them.
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => redrawThrottle.trigger());
     }
 
     try {

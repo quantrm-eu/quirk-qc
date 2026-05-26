@@ -322,7 +322,7 @@ function paintErrorIfPresent(args, indicatorAlpha) {
             'center',
             'hanging',
             `rgba(255,0,0,${1-indicatorAlpha})`,
-            '12px sans-serif',
+            '12px Roboto, Arial, sans-serif',
             args.rect.w,
             args.rect.h,
             undefined);

@@ -306,7 +306,7 @@ class MathPainter {
                 'center',
                 'middle',
                 'red',
-                '16px sans-serif',
+                '16px Roboto, Arial, sans-serif',
                 drawArea.w,
                 drawArea.h);
         }
@@ -329,7 +329,7 @@ class MathPainter {
             valueText,
             valueText2 = undefined,
             backColor = Config.DISPLAY_GATE_BACK_COLOR) {
-        const labelFont = '12px sans-serif';
+        const labelFont = '12px Roboto, Arial, sans-serif';
         const valueFont = 'bold 12px monospace';
         painter.defer(() => {
             painter.ctx.font = labelFont;
@@ -616,7 +616,7 @@ class MathPainter {
                 'center',
                 'middle',
                 'red',
-                '16px sans-serif',
+                '16px Roboto, Arial, sans-serif',
                 drawArea.w,
                 drawArea.h);
         }

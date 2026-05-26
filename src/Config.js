@@ -34,7 +34,7 @@ Config.URL_CIRCUIT_PARAM_KEY = 'circuit';
 
 // Gate background colors.
 Config.GATE_FILL_COLOR = 'white';
-Config.HIGHLIGHTED_GATE_FILL_COLOR = '#FB7';
+Config.HIGHLIGHTED_GATE_FILL_COLOR = '#9FC0E8'; // QuantRM brand blue tint on hover
 Config.TIME_DEPENDENT_HIGHLIGHT_COLOR = '#FFC';
 
 // Mixed-state displays are green.
@@ -65,7 +65,7 @@ Config.BACKGROUND_COLOR = 'white';
 Config.BACKGROUND_COLOR_CIRCUIT = 'white';
 
 // Toolbox layout.
-Config.BACKGROUND_COLOR_TOOLBOX = '#CCC';
+Config.BACKGROUND_COLOR_TOOLBOX = '#E7EEF6'; // QuantRM brand blue tint
 Config.TOOLBOX_GATE_SPACING = 2;
 Config.TOOLBOX_GROUP_SPACING = 24 - Config.TOOLBOX_GATE_SPACING;
 Config.TOOLBOX_GATE_SPAN = Config.GATE_RADIUS * 2 + Config.TOOLBOX_GATE_SPACING;
@@ -87,7 +87,7 @@ Config.DEFAULT_FILL_COLOR = 'white';
 Config.DEFAULT_STROKE_COLOR = 'black';
 Config.DEFAULT_TEXT_COLOR = 'black';
 Config.DEFAULT_FONT_SIZE = 12;
-Config.DEFAULT_FONT_FAMILY = 'sans-serif';
+Config.DEFAULT_FONT_FAMILY = 'Roboto, Arial, sans-serif';
 Config.DEFAULT_STROKE_THICKNESS = 1;
 
 // Calling WebGLRenderingContext.getError forces a CPU/GPU sync. It's very expensive.
